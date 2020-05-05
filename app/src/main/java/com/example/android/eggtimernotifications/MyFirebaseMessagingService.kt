@@ -45,8 +45,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
     // [END receive_message]
 
-    //TODO Step 3.2 log registration token
-    // [START on_new_token]
+    override fun onNewToken(token: String?) {
+        Log.d(TAG, "Refreshed token: $token")
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // Instance ID token to your app server.
+        sendRegistrationToServer(token)
+    }
 
     // [END on_new_token]
 
